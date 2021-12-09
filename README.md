@@ -16,13 +16,13 @@ Then, may be, this code will help you. Cheers!
 
 
 ### Hotkeys
-|Key|Purpose|
-|---|---|
-|P  |Play/Pause video|
-|Z/X|Rewind +/- 60 frames|
-|C/V| Rewind +/- 3 frames| 
-|B/N| Rewind +/- 600 frames| 
-|. or ,| Next/Previous video|
-|S  |Save Frame|
-|D  |Delete last saved frame|
+| Key    | Purpose                 |
+|--------|-------------------------|
+| P      | Play/Pause video        |
+| Z/X    | Rewind +/- 60 frames    |
+| C/V    | Rewind +/- 3 frames     | 
+| B/N    | Rewind +/- 600 frames   | 
+| . or , | Next/Previous video     |
+| S      | Save Frame              |
+| D      | Delete last saved frame |
 
