@@ -16,28 +16,28 @@ Q - Закончить просмотр
 
 
 def get_args():
-    parser = argparse.ArgumentParser("Yolo format annotations to COCO dataset format")
+    parser = argparse.ArgumentParser("Screenshots from video-stream")
     parser.add_argument(
         "-v",
         "--videos",
         type=str,
-        help="Absolute path for the root dir for images.",
+        help="Absolute path for the root dir with 'raw' folder.",
     )
 
     parser.add_argument(
         "-e",
         "--ext",
         type=str,
-        default="jpg",
-        help="Images extension",
+        default=".mp4",
+        help="Videos extension",
     )
 
     args = parser.parse_args()
     return args
 
 # Папка с исходными видео с соответствующим расширением
-# videos_dir = "/home/mikhail/PycharmProjects/DatasetFromVideo/example"
-# file_extension = ".mov"
+videos_dir = "/home/mikhail/Рабочий стол/data"
+file_extension = ".mp4"
 
 
 def main(videos_dir, file_extension):
@@ -149,4 +149,7 @@ def main(videos_dir, file_extension):
 
 if __name__ == "__main__":
     options = get_args()
-    main(options.videos, options.ext)
+    if options.videos is not None:
+        main(options.videos, options.ext)
+    else:
+        main(videos_dir, file_extension)
