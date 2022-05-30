@@ -35,10 +35,6 @@ def get_args():
     args = parser.parse_args()
     return args
 
-# Папка с исходными видео с соответствующим расширением
-videos_dir = "/home/mikhail/Рабочий стол/data"
-file_extension = ".mp4"
-
 
 def main(videos_dir, file_extension):
     save_path = os.path.join(videos_dir, "dataset")
@@ -148,6 +144,10 @@ def main(videos_dir, file_extension):
 
 
 if __name__ == "__main__":
+    # Папка с исходными видео с соответствующим расширением
+    videos_dir = "/path_to/your/data_folder_with/raw_folder/"
+    file_extension = ".mp4"
+
     options = get_args()
     if options.videos is not None:
         main(options.videos, options.ext)
