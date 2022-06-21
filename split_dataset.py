@@ -123,8 +123,11 @@ def copy_files(files_type, labels_dir, output, ext):
                     shutil.copy2(x, full_path)
             else:
                 label_name = os.path.split(f)[-1].replace(ext, "txt")
-                shutil.copy2(os.path.join(labels_dir, label_name), labels_path)
-                shutil.copy2(f, full_path)
+                try:
+                    shutil.copy2(os.path.join(labels_dir, label_name), labels_path)
+                    shutil.copy2(f, full_path)
+                except FileNotFoundError:
+                    continue
 
 
 def split_class_dir_ratio(images_dir, labels_dir, output, ratio, seed, ext):
