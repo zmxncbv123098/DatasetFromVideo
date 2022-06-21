@@ -1,7 +1,6 @@
 # Create dataset from videos
 
-[TOC]
-
+[[_TOC_]]
 You want to create a dataset from videos?
 
 Then, may be, this code will help you. Cheers!
