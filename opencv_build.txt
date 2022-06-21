@@ -1,0 +1,44 @@
+apt-get install ffmpeg libsm6 libxext6 x264 libx264-dev libopencv-dev libturbojpeg cmake
+
+wget -O opencv.zip "https://github.com/opencv/opencv/archive/4.2.0.zip"
+wget -O opencv_contrib.zip "https://github.com/opencv/opencv_contrib/archive/4.2.0.zip"
+
+
+unzip opencv.zip
+unzip opencv_contrib.zip
+mkdir opencv-4.2.0/build
+
+cd opencv-4.2.0/build
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE  \
+-D WITH_GTK=ON \
+-D OPENCV_GENERATE_PKGCONFIG=ON \
+-D WITH_CUBLAS=ON \
+-D WITH_LIBV4L=ON \
+-D WITH_GSTREAMER=ON \
+-D BUILD_TIFF=ON  \
+-D BUILD_opencv_java=OFF   \
+-D WITH_CUDA=OFF   \
+-D WITH_OPENGL=ON   \
+-D WITH_OPENCL=ON   \
+-D WITH_IPP=ON   \
+-D WITH_TBB=ON   \
+-D WITH_EIGEN=ON   \
+-D WITH_V4L=ON   \
+-D BUILD_TESTS=OFF   \
+-D BUILD_PERF_TESTS=OFF   \
+-D CMAKE_INSTALL_PREFIX=$(python -c "import sys; print(sys.prefix)")   \
+-D PYTHON_EXECUTABLE=$(which python)   \
+-D PYTHON_INCLUDE_DIR=$(python -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())")   \
+-D PYTHON_PACKAGES_PATH=$(python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")   \
+-D PYTHON_DEFAULT_EXECUTABLE=$(which python)   \
+-D BUILD_NEW_PYTHON_SUPPORT=ON   \
+-D BUILD_opencv_python3=ON   \
+-D HAVE_opencv_python3=ON   \
+-D BUILD_opencv_gapi=OFF   \
+-D OPENCV_EXTRA_MODULES_PATH=/srv/sources/opencv_contrib-4.2.0/modules ..
+
+make -j8
+make install
+
+mv lib/python3/cv2.cpython-36m-x86_64-linux-gnu.so /usr/local/lib/python3.6/dist-packages/cv2.so
