@@ -129,6 +129,14 @@ def main(data_path, file_extension, skip_to=""):
             if key == ord('n'):
                 reader.cap.set(propId=cv2.CAP_PROP_POS_FRAMES, value=int(reader.cap.get(cv2.CAP_PROP_POS_FRAMES)) + 600)
 
+            # Перемотка назад на -n кадров
+            if key == ord('i'):
+                reader.cap.set(propId=cv2.CAP_PROP_POS_FRAMES, value=int(reader.cap.get(cv2.CAP_PROP_POS_FRAMES)) - 10000)
+
+            # Перемотка вперед на +n кадров
+            if key == ord('u'):
+                reader.cap.set(propId=cv2.CAP_PROP_POS_FRAMES, value=int(reader.cap.get(cv2.CAP_PROP_POS_FRAMES)) + 10000)
+
             # Предыдущее видео
             if key == ord(','):
                 video_id = video_id - 2
