@@ -32,11 +32,19 @@ def get_args():
         help="Videos extension",
     )
 
+    parser.add_argument(
+        "-s",
+        "--skip",
+        type=str,
+        default="",
+        help="Skip videos to start from another time. Format - \"hh:mm:ss\"",
+    )
+
     args = parser.parse_args()
     return args
 
 
-def main(videos_dir, file_extension):
+def main(videos_dir, file_extension, skip_to=""):
     save_path = os.path.join(videos_dir, "dataset")
 
     videos_list = sorted(get_filelist(os.path.join(videos_dir, "raw"), ext=file_extension))
@@ -59,6 +67,12 @@ def main(videos_dir, file_extension):
 
         frames = int(reader.cap.get(cv2.CAP_PROP_FRAME_COUNT))
         print(video, "frames total:", frames)
+
+        if skip_to:
+            h, m, s = map(int, skip_to.split(":"))
+            fps = int(reader.cap.get(cv2.CAP_PROP_FPS))
+            frame_skip_id = (((h * 60) + m) * 60) * fps
+            reader.cap.set(propId=cv2.CAP_PROP_POS_FRAMES, value=int(frame_skip_id))
 
         while True:
 
@@ -145,11 +159,12 @@ def main(videos_dir, file_extension):
 
 if __name__ == "__main__":
     # Папка с исходными видео с соответствующим расширением
-    videos_dir = "/path_to/your/data_folder_with/raw_folder/"
-    file_extension = ".mp4"
+    videos_dir = "/var/data/CHPTZ/auto"
+    file_extension = ".avi"
+    skip_to = ""
 
     options = get_args()
     if options.videos is not None:
-        main(options.videos, options.ext)
+        main(options.videos, options.ext, skip_to=options.skip)
     else:
-        main(videos_dir, file_extension)
+        main(videos_dir, file_extension, skip_to="2:28:00")
