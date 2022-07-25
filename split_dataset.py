@@ -178,12 +178,14 @@ def main(opt):
 
 if __name__ == "__main__":
     options = get_args()
-    main(options)
 
-    # images_dir = "/home/mbeshkurov/PycharmProjects/test/images"
-    # labels_dir = "/home/mbeshkurov/PycharmProjects/test/labels"
-    # out_dir = "yolov5/datasets/TEST"
-    # ratio = (0.8, 0.1, 0.1)
-    # seed = 1337
-    # ext = "jpg"
-    # split_class_dir_ratio(images_dir, labels_dir, out_dir, ratio, seed, ext)
+    if options.videos is not None:
+        main(options)
+    else:
+        images_dir = "/home/mbeshkurov/PycharmProjects/test/images"
+        labels_dir = "/home/mbeshkurov/PycharmProjects/test/labels"
+        out_dir = "yolov5/datasets/TEST"
+        ratio = (0.8, 0.1, 0.1)
+        seed = 1337
+        ext = "jpg"
+        split_class_dir_ratio(images_dir, labels_dir, out_dir, ratio, seed, ext)
