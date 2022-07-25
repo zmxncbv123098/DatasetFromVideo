@@ -33,7 +33,7 @@ Then, may be, this code will help you. Cheers!
 
 **Or use argparse**
 3. 
-```bash
+    ```bash
     python screenshot_from_video.py --videos "/path/to/videos/" --ext ".mp4" --skip "3:14:15" 
     ```
     
