@@ -37,7 +37,7 @@ Then, may be, this code will help you. Cheers!
     python screenshot_from_video.py --videos "/path/to/videos/" --ext ".mp4" --skip "3:14:15" 
     ```
     
-    or if you want only one video to procces 
+or if you want only one video to procces 
     
     ```bash
     python screenshot_from_video.py --videos "/path/to/video.mp4" --ext ".mp4" --skip "3:14:15"
