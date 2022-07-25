@@ -32,16 +32,18 @@ Then, may be, this code will help you. Cheers!
 3. Run `screenshot_from_video.py`.
 
 **Or use argparse**
-3. 
-    ```bash
-    python screenshot_from_video.py --videos "/path/to/videos/" --ext ".mp4" --skip "3:14:15" 
-    ```
+
+3. Execute in bash
+
+```bash
+python screenshot_from_video.py --videos "/path/to/videos/" --ext ".mp4" --skip "3:14:15" 
+```
     
 or if you want only one video to procces 
-    
-    ```bash
-    python screenshot_from_video.py --videos "/path/to/video.mp4" --ext ".mp4" --skip "3:14:15"
-    ```
+
+```bash
+python screenshot_from_video.py --videos "/path/to/video.mp4" --ext ".mp4" --skip "3:14:15"
+```
 
 4. The script will automatically create folder dataset in "some_folder", where your photos will be.
     - base_folder
