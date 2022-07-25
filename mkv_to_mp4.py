@@ -1,4 +1,4 @@
-from functions import *
+from functions import Reader, get_filelist
 
 import os
 import cv2
