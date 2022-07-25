@@ -44,10 +44,15 @@ def get_args():
     return args
 
 
-def main(videos_dir, file_extension, skip_to=""):
-    save_path = os.path.join(videos_dir, "dataset")
+def main(data_path, file_extension, skip_to=""):
 
-    videos_list = sorted(get_filelist(os.path.join(videos_dir, "raw"), ext=file_extension))
+    if file_extension in data_path:
+        save_path = os.path.join(os.path.split(data_path)[0], "dataset")
+        videos_list = [data_path]
+    else:
+        save_path = os.path.join(data_path, "dataset")
+        videos_list = sorted(get_filelist(os.path.join(data_path, "raw"), ext=file_extension))
+
     last_saved = None
     waitKey_mode = 0
 
@@ -159,7 +164,8 @@ def main(videos_dir, file_extension, skip_to=""):
 
 if __name__ == "__main__":
     # Папка с исходными видео с соответствующим расширением
-    videos_dir = "/var/data/CHPTZ/auto"
+    # data_path = "/path/to/folder_with_raw"
+    data_path = "/path/to/video_file.avi"
     file_extension = ".avi"
     skip_to = ""
 
@@ -167,4 +173,4 @@ if __name__ == "__main__":
     if options.videos is not None:
         main(options.videos, options.ext, skip_to=options.skip)
     else:
-        main(videos_dir, file_extension, skip_to="2:28:00")
+        main(data_path, file_extension, skip_to="2:28:20")
