@@ -7,7 +7,7 @@ import yaml
 
 
 def get_args():
-    parser = argparse.ArgumentParser("Yolo format annotations to COCO dataset format")
+    parser = argparse.ArgumentParser("Split Yolo data to train format")
     parser.add_argument(
         "-i",
         "--images",
