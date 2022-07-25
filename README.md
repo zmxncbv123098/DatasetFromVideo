@@ -32,10 +32,13 @@ Then, may be, this code will help you. Cheers!
 3. Run `screenshot_from_video.py`.
 
 **Or use argparse**
-3. ```bash
+3. 
+```bash
     python screenshot_from_video.py --videos "/path/to/videos/" --ext ".mp4" --skip "3:14:15" 
     ```
-    or if you want  
+    
+    or if you want only one video to procces 
+    
     ```bash
     python screenshot_from_video.py --videos "/path/to/video.mp4" --ext ".mp4" --skip "3:14:15"
     ```
