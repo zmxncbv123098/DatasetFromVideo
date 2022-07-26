@@ -182,4 +182,4 @@ if __name__ == "__main__":
     if options.videos is not None:
         main(options.videos, options.ext, skip_to=options.skip)
     else:
-        main(data_path, file_extension, skip_to="2:28:20")
+        main(data_path, file_extension, skip_to=skip_to)
