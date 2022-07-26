@@ -179,13 +179,16 @@ def main(opt):
 if __name__ == "__main__":
     options = get_args()
 
-    if options.videos is not None:
+    if options.images is not None:
         main(options)
     else:
-        images_dir = "/home/mbeshkurov/PycharmProjects/test/images"
-        labels_dir = "/home/mbeshkurov/PycharmProjects/test/labels"
-        out_dir = "yolov5/datasets/TEST"
-        ratio = (0.8, 0.1, 0.1)
+        print("Processing ... ")
+        images_dir = "/var/data/CHPTZ/DATA/plate-detector/pack260722/images"
+        labels_dir = "/var/data/CHPTZ/DATA/plate-detector/pack260722/labels_wagon_and_locomotive"
+        out_dir = "/home/mbeshkurov/PycharmProjects/LBLPHOTO/yolov5/MY_YOLO/CHTPZ/plate-det-with-locomotive"
+        ratio = (0.9, 0.1)
         seed = 1337
-        ext = "jpg"
+        ext = "png"
         split_class_dir_ratio(images_dir, labels_dir, out_dir, ratio, seed, ext)
+
+        print("Done")

@@ -88,4 +88,8 @@ if __name__ == "__main__":
         # "4": "truckbody_upper"
     }
 
+    print(f"Labels to select: {', '.join(cfg.values())}")
+
     select_lables(cfg, lables_path, result_path)
+
+    print(f"New labels stored at {result_path}")
