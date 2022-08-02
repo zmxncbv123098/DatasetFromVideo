@@ -30,9 +30,11 @@ def form_alias_labels(cfg, result_path):
 def select_lables(cfg, path_labels, result_path):
     print("Sorting ...")
 
+    os.makedirs(result_path, exist_ok=True)
+
     aliases = form_alias_labels(cfg, result_path)
 
-    lbl = glob.glob(path_labels)
+    lbl = glob.glob(os.path.join(path_labels, "*.txt"))
     for i in lbl:
         res = []
         filename = os.path.split(i)[1]
@@ -57,7 +59,7 @@ def select_lables(cfg, path_labels, result_path):
 
 def labels_stats(labels_path):
     result = {}
-    lbl = glob.glob(labels_path)
+    lbl = glob.glob(os.path.join(labels_path, "*.txt"))
     for i in lbl:
         filename = os.path.split(i)[1]
         if filename == "classes.txt":
@@ -75,7 +77,7 @@ def labels_stats(labels_path):
 
 
 if __name__ == "__main__":
-    lables_path = "/home/mikhail/Загрузки/DATA/DATASETS/plate_detector/pack050622/labels/*.txt"
+    lables_path = "/home/mikhail/Загрузки/DATA/DATASETS/plate_detector/pack050622/labels/"
     result_path = "/home/mikhail/Загрузки/DATA/DATASETS/plate_detector/pack050622/lables_only_wagon"
 
     labels_stats(lables_path)
