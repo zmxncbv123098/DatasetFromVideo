@@ -5,7 +5,6 @@ import shutil
 import os
 import yaml
 
-
 def get_args():
     parser = argparse.ArgumentParser("Split Yolo data to train format")
     parser.add_argument(
