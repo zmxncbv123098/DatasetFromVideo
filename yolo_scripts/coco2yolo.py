@@ -1,8 +1,10 @@
-""" COCO JSON в bbox/segments лэйблы (.txt)
+""" COCO JSON into bbox or segments labels (.txt)
 """
 import json
 import os
+from selectors import EpollSelector
 import numpy as np
+import argparse
 
 def get_img_ann(image_id, data):
     img_ann = []
@@ -88,11 +90,59 @@ def create_labels(input_images, input_json, output_labels, label_type):
             file_object.close()
         count += 1
 
+def get_args():
+    parser = argparse.ArgumentParser("Split Yolo data to train format")
+    parser.add_argument(
+        "-i",
+        "--images",
+        type=str,
+        help="Absolute path for the root dir for images.",
+    )
+
+    parser.add_argument(
+        "-j",
+        "--json",
+        type=str,
+        help="Absolute path for the coco json",
+    )
+
+    parser.add_argument(
+        "-o",
+        "--output_dir",
+        default="./yolo_labels",
+        type=str,
+        help="Output path for yolo labels",
+    )
+
+    parser.add_argument(
+        "-t",
+        "--type",
+        default='box',
+        type=str,
+        help="mask or box"
+    )
+
+    args = parser.parse_args()
+    return args
+
+def main(opt):
+    images_dir = opt.images
+    json_path = opt.json
+    out_dir = opt.output_dir
+    type = opt.type
+
+    create_labels(images_dir, json_path, out_dir, label_type=type)
 
 if __name__ == "__main__":
-    input_images = "path/to/images"
-    input_json = "path/to/coco/json"
-    output_labels = "save/labels/path"
-    type = 'mask' # box
+    options = get_args()
 
-    create_labels(input_images, input_json, output_labels, label_type='mask')
+    if options.images is not None:
+        main(options)
+    else:
+
+        input_images = "path/to/images"
+        input_json = "path/to/coco/json"
+        output_labels = "save/labels/path"
+        type = 'mask' # box
+
+        create_labels(input_images, input_json, output_labels, label_type='mask')

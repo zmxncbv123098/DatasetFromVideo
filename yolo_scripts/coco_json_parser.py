@@ -1,3 +1,22 @@
+"""
+This file contains several useful functions: 
+    
+    unpack_and_unite_zips - The general function of unpacking and concatenating all images from their zip files + 
+                            concatenating all instances_default.json after markup in COCO JSON format
+
+    unpack_zips - Unpacking zip archives: all pictures are copied to the output_folder/images folder, 
+                  all coco json files are copied to the annotations folder
+
+    unite_jsons_from_list - Generic handler for concatenating json files in a folder
+
+    save_dataset_for_detector - Generates train/val/test jsons
+
+    get_json_statistics - json file stats
+
+    show_annotations - Saves images with visual markup
+"""
+
+
 import os
 import re
 import cv2
@@ -128,7 +147,7 @@ class CamerasDataParser:
 
     @staticmethod
     def unpack_from_folders(path_to_folders: str, path_to: str):
-        """Сборка данных из распакованных папок
+        """Сбор данных из распакованных папок
 
         Args:
             path_to_folders (str): Путь к распакованным папкам 
