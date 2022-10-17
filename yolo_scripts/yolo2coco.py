@@ -1,12 +1,15 @@
-"""Yolo лейблы в jsons
+"""Yolo labels into jsons with backwards bbox transformation.
+
+P.S. in modify_box change your image xywh
+
 """
 
 import os
 import json
 from glob import glob
+import argparse
 
-
-def modify_box(box):
+def modify_box(box): # TODO image size fix 
     x = float(box[0]) * 2048
     y = float(box[1]) * 2448
     w = float(box[2]) * 2048
@@ -61,10 +64,40 @@ def create_jsons(input_path, save_path):
         with open(f"{save_path + image_name}.json", "w") as outfile:
             outfile.write(json_object)
 
+def get_args():
+    parser = argparse.ArgumentParser("Split Yolo data to train format")
+    parser.add_argument(
+        "-i",
+        "--labels",
+        type=str,
+        help="Absolute path for the root dir for labels.",
+    )
+
+    parser.add_argument(
+        "-o",
+        "--jsons",
+        default="",
+        type=str,
+        help="Output path for jsons ",
+    )
+
+    args = parser.parse_args()
+    return args
+
+def main(opt):
+    labels_dir = opt.images
+    jsons_dir = opt.jsons
+
+    create_jsons(labels_dir, jsons_dir)
 
 
 if __name__ == "__main__":
-  input_path = "project/labels"
-  save_path = "project/jsons"
-  
-  create_jsons(input_path, save_path)
+    options = get_args()
+
+    if options.images is not None:
+        main(options)
+    else:
+        input_path = "project/labels"
+        save_path = "project/jsons"
+    
+        create_jsons(input_path, save_path)   
