@@ -59,7 +59,7 @@ python screenshot_from_video.py --videos "/path/to/video.mp4" --ext ".mp4" --ski
 - `yolo_scripts/coco2yolo.py` - Converts COCO annotation json to yolo labels.
 - `yolo_scripts/yolo2coco.py` - Converts yolo label back to readible json with backwards bbox transformation.
 
-- `yolo_scripts/coco_json_parser.py` - Useful tool to prepare your data after markup. <b>For more info check the file, needs yolo_scripts/parser_requirements.txt</b>
+- `yolo_scripts/coco_json_parser.py` - Useful tool to prepare your data after markup. <b>For more info check the file</b>
 
 - `mkv_to_mp4.py` - Convert mkv files to mp4 
 - `opencv_build.txt` - Helpful file if you want to build opencv-python from source. For example: if you want to use h264 (*avc1) codec for videos.

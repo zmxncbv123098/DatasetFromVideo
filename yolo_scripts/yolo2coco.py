@@ -67,15 +67,15 @@ def create_jsons(input_path, save_path):
 def get_args():
     parser = argparse.ArgumentParser("Split Yolo data to train format")
     parser.add_argument(
-        "-i",
+        "-l",
         "--labels",
         type=str,
         help="Absolute path for the root dir for labels.",
     )
 
     parser.add_argument(
-        "-o",
-        "--jsons",
+        "-j",
+        "--jsons_path",
         default="",
         type=str,
         help="Output path for jsons ",
@@ -86,7 +86,7 @@ def get_args():
 
 def main(opt):
     labels_dir = opt.images
-    jsons_dir = opt.jsons
+    jsons_dir = opt.jsons_path
 
     create_jsons(labels_dir, jsons_dir)
 
