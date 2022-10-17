@@ -1,0 +1,4 @@
+opencv-python
+numpy
+scikit-learn
+'git+https://github.com/facebookresearch/detectron2.git'
