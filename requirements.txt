@@ -1,2 +1,4 @@
 opencv-python
 pyyaml
+scikit-learn
+# 'git+https://github.com/facebookresearch/detectron2.git'
