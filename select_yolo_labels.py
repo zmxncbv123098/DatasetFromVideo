@@ -77,10 +77,14 @@ def labels_stats(labels_path):
 
 
 if __name__ == "__main__":
-    lables_path = "/home/mikhail/Загрузки/DATA/DATASETS/plate_detector/pack050622/labels/"
-    result_path = "/home/mikhail/Загрузки/DATA/DATASETS/plate_detector/pack050622/lables_only_wagon"
+    show_stats = True
+    apply_select = False
+    lables_path = "/var/data/CHPTZ/DATA/plate_detector_auto/pack130622/labels"
+    result_path = "/var/data/CHPTZ/DATA/plate_detector_auto/pack130622/labels_only_truck"
 
-    labels_stats(lables_path)
+
+    if show_stats:
+        labels_stats(lables_path)
 
     cfg = {
         "0": "wagon",
@@ -90,8 +94,7 @@ if __name__ == "__main__":
         # "4": "truckbody_upper"
     }
 
-    print(f"Labels to select: {', '.join(cfg.values())}")
-
-    select_lables(cfg, lables_path, result_path)
-
-    print(f"New labels stored at {result_path}")
+    if apply_select:
+        print(f"Labels to select: {', '.join(cfg.values())}")
+        select_lables(cfg, lables_path, result_path)
+        print(f"New labels stored at {result_path}")
