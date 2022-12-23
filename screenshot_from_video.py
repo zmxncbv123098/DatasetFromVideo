@@ -1,6 +1,7 @@
 from functions import *
 import argparse
 import cv2
+import glob
 """
 
 Z/X - Перемотка на +/- 60 кадров 
@@ -52,7 +53,8 @@ def main(data_path, file_extension, skip_to=""):
         videos_list = [data_path]
     else:
         save_path = os.path.join(data_path, "dataset")
-        videos_list = sorted(get_filelist(os.path.join(data_path, "raw"), ext=file_extension))
+        # videos_list = sorted(get_filelist(os.path.join(data_path, "raw"), ext=file_extension))
+        videos_list = glob.glob(f"{data_path}/*{file_extension}")
 
     last_saved = None
     waitKey_mode = 0
@@ -173,8 +175,8 @@ def main(data_path, file_extension, skip_to=""):
 
 if __name__ == "__main__":
     # Папка с исходными видео с соответствующим расширением
-    # data_path = "/path/to/folder_with_raw"
-    data_path = "/path/to/video_file.avi"
+    data_path = "/home/mikhail/Рабочий стол/del/v"
+    # data_path = "/path/to/video_file.avi"
     file_extension = ".avi"
     skip_to = ""
 

@@ -21,15 +21,11 @@ Then, may be, this code will help you. Cheers!
 
 ### Usage
 
-1. Create following file structure if you want to make screenshots from multiple videos:
-    - base_folder
-      - raw
-        - your_videos
-2. In `screenshot_from_video.py` edit all necessary variables, look for:
-- `videos_dir`
-- `file_extension`
-- `skip_to`
-3. Run `screenshot_from_video.py`.
+1. In `screenshot_from_video.py` edit all necessary variables, look for:
+- `data_path` - may be path/to/folder with videos **or** path/to/video.ext
+- `file_extension` - file/files extension
+- `skip_to` - if video is too long u can skip via timecode
+2. Run `screenshot_from_video.py`.
 
 **Or use argparse**
 
@@ -47,8 +43,7 @@ python screenshot_from_video.py --videos "/path/to/video.mp4" --ext ".mp4" --ski
 
 4. The script will automatically create folder dataset in "some_folder", where your photos will be.
     - base_folder
-      - raw
-        - your_videos
+      - your_video(s)
       - dataset
         - your_images
 
