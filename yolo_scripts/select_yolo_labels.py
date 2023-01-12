@@ -78,20 +78,20 @@ def labels_stats(labels_path):
 
 if __name__ == "__main__":
     show_stats = True
-    apply_select = False
-    lables_path = "/var/data/CHPTZ/DATA/plate_detector_auto/pack130622/labels"
-    result_path = "/var/data/CHPTZ/DATA/plate_detector_auto/pack130622/labels_only_truck"
+    apply_select = True
+    lables_path = "/var/data/CHPTZ/DATA/auto-layer-capture/pack2/combine_all/labels"
+    result_path = "/var/data/CHPTZ/DATA/auto-layer-capture/pack2/combine_all/labels_10012023"
 
 
     if show_stats:
         labels_stats(lables_path)
 
     cfg = {
-        "0": "wagon",
-        # "1": "number",
-        # "2": "grub",
-        # "3": "person",
-        # "4": "truckbody_upper"
+        "0": "truckbody",
+        # "1": "truckbody_upper",
+        "2": "truck",
+        "3": "grub",
+        # "4": "person"
     }
 
     if apply_select:
