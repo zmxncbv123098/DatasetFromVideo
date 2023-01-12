@@ -1,4 +1,3 @@
 .idea/
 __pycache__/
 gpt_env/
-change_yolo_labels.py

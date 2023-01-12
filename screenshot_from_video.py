@@ -175,7 +175,7 @@ def main(data_path, file_extension, skip_to=""):
 
 if __name__ == "__main__":
     # Папка с исходными видео с соответствующим расширением
-    data_path = "/home/mikhail/Рабочий стол/del/v"
+    data_path = "/path/to/folder"
     # data_path = "/path/to/video_file.avi"
     file_extension = ".avi"
     skip_to = ""
