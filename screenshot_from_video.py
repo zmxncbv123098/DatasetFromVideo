@@ -151,7 +151,7 @@ def main(data_path, file_extension, skip_to=""):
 
             # Сохранить фрейм
             if key == ord('s'):
-                save_name = "{}_{}.jpg".format(video.split("/")[-1].replace(file_extension, ""), counter)
+                save_name = "{}_{}.jpg".format(os.path.basename(video).replace(file_extension, ""), counter)
                 last_saved = os.path.join(save_path, save_name)
                 print("- img saved to {}".format(os.path.join(save_path, save_name)))
                 cv2.imwrite(os.path.join(save_path, save_name), save_img)
